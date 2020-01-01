@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "07611b00-ef0d-496d-ab49-77c20d89c7f5",
+		"name": "library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06643863-9807-4490-943b-d370abc81355",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/library/books?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"library",
+						"books"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Book-1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15d90ccd-e8ff-4dc0-a263-7fc15820ebcf",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Response code is 200\"] = responseBody.has(\"OK\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\", \n\t\"name\": \"Harry Potter: Philosopher's Stone\", \n\t\"author\": \"J.K.Rowling\", \n\t\"year\": 1998\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/library/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"library",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book-1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "15d90ccd-e8ff-4dc0-a263-7fc15820ebcf",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Response code is 200\"] = responseBody.has(\"OK\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1\", \n\t\"name\": \"Harry Potter: Philosopher's Stone\", \n\t\"author\": \"J.K.Rowling\", \n\t\"year\": 1998\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/library/book?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"library",
+						"book"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Book-2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1c5f2ff-cfa2-44c7-8f3e-f6081a2cf08d",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Response code is 200\"] = responseBody.has(\"OK\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"2\", \n\t\"name\": \"OOP\", \n\t\"author\": \"Pakita\", \n\t\"year\": 2013\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/library/book",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"library",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06643863-9807-4490-943b-d370abc81355",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Response has 1\"] = responseBody.has(\"1\");",
+							"tests[\"Response has 2\"] = responseBody.has(\"2\");",
+							"tests[\"Response has Harry Potter\"] = responseBody.has(\"Harry Potter: Philosopher's Stone\");",
+							"tests[\"Response has Pakita\"] = responseBody.has(\"Pakita\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/library/books",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"library",
+						"books"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

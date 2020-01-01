@@ -1,0 +1,4 @@
+[0m[[0m[33mwarn[0m] [0m[0m/Users/alikhanokas/Desktop/ScalaAWS/src/main/scala/week10/JsonSupporter.scala:6:15: imported `models' is permanently hidden by definition of package models in package week10[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport week10.models[0m
+[0m[[0m[33mwarn[0m] [0m[0m              ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
